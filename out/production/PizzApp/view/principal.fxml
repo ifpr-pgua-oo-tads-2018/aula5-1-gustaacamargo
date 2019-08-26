@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<BorderPane prefHeight="400.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8.0.161-ea"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="pizzapp.control.Principal">
+
+	<padding>
+		<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+	</padding>
+	<top>
+		<MenuBar>
+			<menus>
+				<Menu text="Arquivo">
+					<items>
+						<MenuItem text="Clientes" onAction="#mostraClientes" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+	</top>
+	<center>
+		<VBox>
+			<TitledPane animated="true" collapsible="true"
+				text="Cadastro Pizza">
+				<content>
+					<HBox spacing="5">
+
+						<Label text="Sabor:" />
+						<TextField fx:id="tfSabor" />
+						<Label text="Valor:" />
+						<TextField fx:id="tfValor" />
+						<Button onAction="#cadastraPizza" text="Cadastra" />
+						<padding>
+							<Insets bottom="5.0" top="5.0" />
+						</padding>
+					</HBox>
+				</content>
+			</TitledPane>
+			<TitledPane animated="true" collapsible="true"
+				text="Cadastro Cliente">
+				<content>
+					<HBox spacing="5">
+
+						<Label text="Nome:" labelFor="$t" />
+						<TextField fx:id="tfNome" />
+						<Label text="Telefone:" />
+						<TextField fx:id="tfTelefone" />
+						<Label text="Ano de Nascimento:" />
+						<TextField fx:id="tfAnoNascimento" />
+
+						<Button onAction="#cadastraCliente" text="Cadastra" />
+						<padding>
+							<Insets bottom="5.0" top="5.0" />
+						</padding>
+					</HBox>
+				</content>
+			</TitledPane>
+			<TitledPane animated="true" collapsible="true"
+				text="Pedido">
+				<content>
+					<VBox spacing="5.0">
+						<Button onAction="#abrePedido" text="Novo Pedido" />
+						<HBox spacing="5.0">
+							<VBox>
+								<Label text="Clientes" />
+								<TextField fx:id="tfBuscaClientes" promptText="Buscar"
+									onKeyPressed="#buscaClientes" />
+								<ListView fx:id="ltvClientes" />
+							</VBox>
+							<VBox>
+								<Label text="Pizzas Disp." />
+								<TextField fx:id="tfBuscaPizza" promptText="Buscar"
+									onKeyPressed="#buscaPizzas" />
+								<ListView fx:id="ltvPizzas" />
+							</VBox>
+							<Button fx:id="btAdiciona" onAction="#adicionaPizzaPedido"
+								text="+" />
+							<VBox>
+								<Label text="Pizzas Solic." />
+								<ListView fx:id="ltvPedido" />
+							</VBox>
+
+						</HBox>
+						<Text fx:id="txtValorTotal" text="Valor Total:" />
+						<Button fx:id="btFecha" onAction="#fechaPedido"
+							text="Fecha Pedido" />
+						<padding>
+							<Insets top="5.0" />
+						</padding>
+					</VBox>
+				</content>
+			</TitledPane>
+		</VBox>
+	</center>
+
+
+
+</BorderPane>
